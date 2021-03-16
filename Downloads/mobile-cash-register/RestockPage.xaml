@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="mobile_cash_register.RestockPage">
+    <ContentPage.Content>
+        <StackLayout>
+            <Entry x:Name="Entry" Placeholder="Enter new quantity" Keyboard="Numeric" ClearButtonVisibility="WhileEditing"/>
+            <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
+                <Button 
+                Clicked="RestockClicked"
+                Text="Restock" 
+                BorderRadius="20" />
+                <Button 
+                Clicked="CancelClicked"
+                Text="Cancel" 
+                BorderRadius="20" />
+            </StackLayout>
+            <ListView x:Name="restockList" HasUnevenRows="True">
+                <ListView.ItemTemplate>
+                    <DataTemplate> 
+                        <TextCell Text="{Binding name}" Detail="{Binding quantity}" TextColor="Black" DetailColor="Aqua" />
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
